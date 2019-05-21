@@ -27,5 +27,20 @@ public class RequestMappingController {
         return "success";
     }
 
+    /*
+    params属性用来对请求参数进行规定, 取值有如下方式
+    例如:
+    params = "browser=chrome": 规定请求中必须携带browser=chrome的参数
+    params = "browser!=chrome": 规定请求中必须携带browser=chrome的参数
+    params = "browser": 规定请求中必须携带browser参数, 取值随意.
+        符合规范的请求如下所示: /req3?browser; /req3?browser=; /req3?browser=null; /req3?browser=xxx
+    params = "!browser": 规定请求中必须不能携带browser参数
+    如果请求不符合上述的约定, 那么会返回400响应码
+     */
+    @RequestMapping(value = "/req3", params = "browser")
+    public String req3() {
+        return "success";
+    }
+
 
 }
