@@ -3,7 +3,7 @@ package com.wuqi.dev.controller;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/mapping")
@@ -51,6 +51,20 @@ public class RequestMappingController {
      */
     @RequestMapping(value = "/req4", headers = "!authentication")
     public String req4() {
+        return "success";
+    }
+
+    /*
+    method属性表示仅处理特定的请求方法,
+    如果违反该约定, 返回405响应码
+    例如下面的Handler仅能处理POST请求
+    可以使用@GetMapping/@PostMapping/@PutMapping/@DeleteMapping等注解替代@RequestMapping, 直接表示仅能处理某种请求.
+    当然, RequestMapping中的method属性实际上是一个数组, 可以赋值多个请求方法, 例如:
+    @RequestMapping(value = "/req5", method = {RequestMethod.GET, RequestMethod.POST}).
+    需要注意的是, req1到req4介绍的那些属性的类型实际上都是数组类型, 都可以声明多个。
+     */
+    @RequestMapping(value = "/req5", method = RequestMethod.POST)
+    public String req5() {
         return "success";
     }
 
