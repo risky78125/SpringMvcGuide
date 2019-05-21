@@ -42,5 +42,17 @@ public class RequestMappingController {
         return "success";
     }
 
+    /*
+    headers属性用来对任意的请求头进行约定, 如果违反约定, 会返回404响应码
+    例如:
+    headers = "User-Agent!=okhttp": 请求头中的User-Agent的值不能为okhttp
+    headers = "authentication": 请求头中必须得有authentication的头
+    headers = "!authentication": 请求头中必须不能有authentication的头
+     */
+    @RequestMapping(value = "/req4", headers = "!authentication")
+    public String req4() {
+        return "success";
+    }
+
 
 }
