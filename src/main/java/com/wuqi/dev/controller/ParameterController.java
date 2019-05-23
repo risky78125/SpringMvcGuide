@@ -50,7 +50,7 @@ public class ParameterController {
         String contentType = request.getHeader("Content-Type");
         // 8. 获取请求参数
         String page = request.getParameter("page");
-        // 9. 获取contentPath
+        // 9. 获取contextPath
         String contextPath = request.getContextPath();
         // 10 获取原生的HttpServletRequest对象
         HttpServletRequest req = request.getNativeRequest(HttpServletRequest.class);
