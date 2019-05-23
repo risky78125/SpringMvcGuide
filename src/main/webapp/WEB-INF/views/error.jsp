@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Risky
@@ -13,5 +14,8 @@
 <body>
 <h1>错误页面</h1>
 <p>${message}</p>
+<c:forEach var="error" items="${errors}">
+    <p>${error.defaultMessage}</p>
+</c:forEach>
 </body>
 </html>
