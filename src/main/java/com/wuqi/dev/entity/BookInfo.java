@@ -2,7 +2,9 @@ package com.wuqi.dev.entity;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-public class BookInfo {
+import java.io.Serializable;
+
+public class BookInfo implements Serializable {
 
     public interface SimpleView {}
 
@@ -19,6 +21,16 @@ public class BookInfo {
 
     @JsonView(DetailView.class)
     private String publisher;
+
+    @Override
+    public String toString() {
+        return "BookInfo{" +
+                "bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
+                '}';
+    }
 
     public Long getBookId() {
         return bookId;
