@@ -21,3 +21,15 @@
 5. 增加数据校验和分组校验
 
     参考`ValidationController`,`UserInfo`, `ExceptionAdvice`
+    
+6. 路径参数集合正则表达式获取数据
+
+    参考`PathController`
+
+7. 在重定向的请求直接传递数据
+
+    参考`RedirectController`
+    
+8. 为请求设置不同的响应码
+
+    参考`ExceptionAdvice`中的`@ResponseStatus`注解
