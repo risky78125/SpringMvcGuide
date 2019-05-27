@@ -1,11 +1,13 @@
 package com.wuqi.dev.advice;
 
 import org.springframework.beans.PropertyEditorRegistry;
+import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.Collections;
 import java.util.Map;
@@ -15,6 +17,7 @@ import java.util.Map;
 @ControllerAdvice(basePackages = "com.wuqi.dev.controller")
 public class ExceptionAdvice {
 
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ClassCastException.class)
     public String resolveClassCastException(Model model, ClassCastException ex) {
         model.addAttribute("message", ex.getMessage());
